@@ -7,6 +7,16 @@ let operator = null;
 // update display function
 function updateDisplay() {
     document.getElementsByClassName('display').textContent = currentInput;
+};
+// handle numbers
+function handleNumber(value) {
+    if (currentInput === '0' || operator) {
+        currentInput = value;
+    } else {
+        currentInput += value;
+    } 
+    operator = null;
+    updateDisplay();
 }
 
 function operate (operator) {
