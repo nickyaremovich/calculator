@@ -10,7 +10,7 @@ function operate (operator) {
     case '-': return firstOperand - secondOperand;
     case '*': return firstOperand * secondOperand;
     case '/': 
-        if (secondOperand === 0) return 'Cannot divide by zero';
+        if (secondOperand === 0) return 'Can\t do that!';
         return firstOperand / secondOperand;
     default: return 'Error';
   }
