@@ -1,35 +1,20 @@
-function add (a, b) {
-    return a + b
-    
-};
-
-function subtract (a, b) {
-    return a - b;
-}
-
-
-function multiply (a, b) {
-    return a * b;
-}
-
-
-function divide (a, b) {
-    return a / b;
-}
-
+// array of operators for operate function 
 const operators = ['+', '-', '*', '/'];
-let firstOperand = 0;
-let secondOperand = 0;
 
-function operate (operator, firstOperand, secondOperand) {
+function operate (operator) {
     if (!operators.includes(operator)) return 'Invalid operator';
+
 
   switch (operator) {
     case '+': return firstOperand + secondOperand;
     case '-': return firstOperand - secondOperand;
     case '*': return firstOperand * secondOperand;
-    case '/': return firstOperand / secondOperand;
+    case '/': 
+        if (secondOperand === 0) return 'Cannot divide by zero';
+        return firstOperand / secondOperand;
     default: return 'Error';
   }
 };
 
+let firstOperand = 0;
+let secondOperand = 0;
