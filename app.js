@@ -4,6 +4,11 @@ let currentInput = '0';
 let previousInput = '';
 let operator = null;
 
+// update display function
+function updateDisplay() {
+    document.getElementsByClassName('display').textContent = currentInput;
+}
+
 function operate (operator) {
     if (!operators.includes(operator)) return 'Invalid operator';
 
