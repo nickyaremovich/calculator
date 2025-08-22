@@ -17,6 +17,16 @@ function handleNumber(value) {
     } 
     operator = null;
     updateDisplay();
+};
+//handle op
+function handleOperator(op) {
+    if (operator && previousInput) {
+        operate();
+    }
+    previousInput = currentInput;
+    opertor = op;
+    currentInput= '0';
+    updateDisplay();
 }
 
 function operate (operator) {
@@ -42,7 +52,9 @@ let secondOperand = 0;
 
 //add event listeners to buttons
 document.querySelectorAll('.number').forEach(button => {
-  button.addEventListener('click', () =>
+  button.addEventListener('click', () => handleNumber(button.getAttribute('data-value')));
+});
 
 document.querySelectorAll('.operator').forEach(button => {
-  button.addEventListener('click', () =>
+  button.addEventListener('click', () => handleOperator(button.getAttribute('data-op')));
+});  
