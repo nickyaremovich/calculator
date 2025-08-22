@@ -16,7 +16,7 @@ function multiply (a, b) {
     return a * b;
 }
 
-console.log(subtract(5, 2));
+console.log(multiply(5, 2));
 
 function divide (a, b) {
     return a / b;
