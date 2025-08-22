@@ -6,7 +6,7 @@ let operator = null;
 
 // update display function
 function updateDisplay() {
-    document.getElementsByClassName('display').textContent = currentInput;
+    document.getElementsById('display').value = currentInput;
 };
 // handle numbers
 function handleNumber(value) {
@@ -28,7 +28,6 @@ function handleOperator(op) {
     currentInput= '0';
     updateDisplay();
 }
-
 function operate (operator) {
     if (!operators.includes(operator)) return 'Invalid operator';
 
