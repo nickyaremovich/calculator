@@ -25,10 +25,10 @@ function operate (operator, firstOperand, secondOperand) {
     if (!operators.includes(operator)) return 'Invalid operator';
 
   switch (operator) {
-    case '+': return operand1 + operand2;
-    case '-': return operand1 - operand2;
-    case '*': return operand1 * operand2;
-    case '/': return operand1 / operand2;
+    case '+': return firstOperand + secondOperand;
+    case '-': return firstOperand - secondOperand;
+    case '*': return firstOperand * secondOperand;
+    case '/': return firstOperand / secondOperand;
     default: return 'Error';
   }
 };
