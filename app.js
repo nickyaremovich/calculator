@@ -33,4 +33,3 @@ function operate (operator, firstOperand, secondOperand) {
   }
 };
 
-console.log(operate('+', 5, 55));
