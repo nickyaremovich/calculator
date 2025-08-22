@@ -17,7 +17,7 @@ function divide (a, b) {
     return a / b;
 }
 
-const operator = ['+', '-', '*', '/'];
+const operators = ['+', '-', '*', '/'];
 let firstOperand = 0;
 let secondOperand = 0;
 
@@ -32,3 +32,5 @@ function operate (operator, firstOperand, secondOperand) {
     default: return 'Error';
   }
 };
+
+console.log(operate('+', 5, 55));
