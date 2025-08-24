@@ -6,7 +6,7 @@ let operator = null;
 
 // update display function
 function updateDisplay() {
-    document.getElementsById('display').value = currentInput;
+    document.querySelector('#display').value = currentInput;
 };
 // handle numbers
 function handleNumber(value) {
@@ -24,7 +24,7 @@ function handleOperator(op) {
         operate();
     }
     previousInput = currentInput;
-    opertor = op;
+    operator = op;
     currentInput= '0';
     updateDisplay();
 }
