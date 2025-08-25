@@ -30,19 +30,36 @@ function handleOperator(op) {
 }
 function operate (operator) {
     if (!operators.includes(operator)) return 'Invalid operator';
+    let result;
 
-
-  switch (operator) {
-    case '+': return firstOperand + secondOperand;
-    case '-': return firstOperand - secondOperand;
-    case '*': return firstOperand * secondOperand;
-    case '/': 
-        if (secondOperand === 0) return 'Can\t do that!';
-        return firstOperand / secondOperand;
-    default: return 'Error';
+    switch (operator) {
+      case '+':
+        result = firstOperand + secondOperand;
+        break;
+      case '-':
+        result = firstOperand - secondOperand;
+        break;
+      case '*':
+        result = firstOperand * secondOperand;
+        break;
+      case '/':
+        if (secondOperand === 0) return "Can't do that!";
+        result = firstOperand / secondOperand;
+        break;
+      default:
+        return 'Error';
   }
-  updateDisplay();
+
+    updateDisplay(); // Now this will run
+    return result;
 };
+
+function clear() {
+  currentInput = '0';
+  previousInput = ''
+  operator = null;
+  updateDisplay();
+}
 
 // not sure if I need these?
 let firstOperand = 0;
@@ -58,4 +75,5 @@ document.querySelectorAll('.operator').forEach(button => {
   button.addEventListener('click', () => handleOperator(button.getAttribute('data-op')));
 });  
 
-document.getElementById('equal').addEventListener('click', operate(operator));
+document.getElementById('equal').addEventListener('click', operate);
+document.getElementById('clear').addEventListener('click', clear);
