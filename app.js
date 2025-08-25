@@ -17,6 +17,17 @@ function handleNumber(value) {
     } 
     updateDisplay();
 };
+function handleDecimal(value) {
+   if (value === '.' && currentInput.includes('.')) return;
+
+  if (currentInput === '0' && value !== '.') {
+    currentInput = value;
+  } else {
+    currentInput += value;
+  }
+
+  updateDisplay();
+}
 //handle op
 function handleOperator(op) {
     if (operator && previousInput && currentInput) {
