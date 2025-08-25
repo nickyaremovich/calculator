@@ -28,6 +28,7 @@ function handleDecimal(value) {
 
   updateDisplay();
 }
+
 //handle op
 function handleOperator(op) {
     if (operator && previousInput && currentInput) {
@@ -71,7 +72,7 @@ function operate() {
   }
 
   console.log('Result:', result);
-  currentInput = result.toString();
+  currentInput = result.toFixed(3);
   previousInput = '';
   operator = null;
   updateDisplay();
