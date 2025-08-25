@@ -71,10 +71,6 @@ function clear() {
   updateDisplay();
 }
 
-// not sure if I need these?
-// let firstOperand = 0;
-// let secondOperand = 0;
-
 
 //add event listeners to buttons
 document.querySelectorAll('.number').forEach(button => {
