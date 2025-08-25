@@ -25,7 +25,7 @@ function handleOperator(op) {
     }
     previousInput = currentInput;
     operator = op;
-    currentInput= '0';
+    currentInput= '';
     updateDisplay();
 }
 function operate (operator) {
@@ -41,8 +41,8 @@ function operate (operator) {
         return firstOperand / secondOperand;
     default: return 'Error';
   }
+  updateDisplay();
 };
-
 
 // not sure if I need these?
 let firstOperand = 0;
@@ -57,3 +57,5 @@ document.querySelectorAll('.number').forEach(button => {
 document.querySelectorAll('.operator').forEach(button => {
   button.addEventListener('click', () => handleOperator(button.getAttribute('data-op')));
 });  
+
+document.getElementById('equal').addEventListener('click', operate(operator));
