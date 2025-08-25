@@ -107,3 +107,31 @@ document.querySelectorAll('.operator').forEach(button => {
 document.getElementById('equal').addEventListener('click', operate);
 document.getElementById('clear').addEventListener('click', clear);
 document.getElementById('backspace').addEventListener('click', backspace);
+// keyboard support
+document.addEventListener('keydown', (e) => {
+  const key = e.key;
+
+
+  if (!isNaN(key) || key === '.') {
+    handleNumber(key);
+  }
+
+  if (['+', '-', '*', '/'].includes(key)) {
+    handleOperator(key);
+  }
+
+  if (key === 'Enter' || key === '=') {
+    operate();
+  }
+
+ 
+  if (key === 'Backspace') {
+    e.preventDefault(); 
+    backspace();
+  }
+
+
+  if (key === 'Escape') {
+    clear();
+  }
+});
