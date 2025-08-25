@@ -45,7 +45,11 @@ function operate () {
         result = firstOperand * secondOperand;
         break;
       case '/':
-        if (secondOperand === 0) return "Can't do that!";
+        if (secondOperand === 0) {
+          currentInput = "Can\'t do that!";
+          updateDisplay();
+          return;
+      }
         result = firstOperand / secondOperand;
         break;
       default:
