@@ -28,7 +28,7 @@ function handleOperator(op) {
     currentInput= '';
     updateDisplay();
 }
-function operate (operator) {
+function operate () {
     if (!operators.includes(operator)) return 'Invalid operator';
     const firstOperand = parseFloat(previousInput);
     const secondOperand = parseFloat(currentInput);
@@ -49,7 +49,9 @@ function operate (operator) {
         result = firstOperand / secondOperand;
         break;
       default:
-        return 'Error';
+        currentInput = 'Error';
+        updateDisplay();
+        return;
   }
     currentInput = result.toString();
     previousInput = '';
@@ -79,5 +81,5 @@ document.querySelectorAll('.operator').forEach(button => {
   button.addEventListener('click', () => handleOperator(button.getAttribute('data-op')));
 });  
 
-document.getElementById('equal').addEventListener('click', operate(operator));
+document.getElementById('equal').addEventListener('click', operate);
 document.getElementById('clear').addEventListener('click', clear);
