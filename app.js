@@ -39,6 +39,15 @@ function handleOperator(op) {
     currentInput= '';
     updateDisplay();
 }
+//backspace function
+function backspace() {
+  if (currentInput.length > 1) {
+    currentInput = currentInput.slice(0, -1);
+  } else {
+    currentInput = '0';
+  }
+  updateDisplay();
+}
 function operate() {
   
   const firstOperand = parseFloat(previousInput);
@@ -72,7 +81,7 @@ function operate() {
   }
 
   console.log('Result:', result);
-  currentInput = result.toFixed(3);
+  currentInput = parseFloat(result.toFixed(3)).toString();
   previousInput = '';
   operator = null;
   updateDisplay();
@@ -97,3 +106,4 @@ document.querySelectorAll('.operator').forEach(button => {
 
 document.getElementById('equal').addEventListener('click', operate);
 document.getElementById('clear').addEventListener('click', clear);
+document.getElementById('backspace').addEventListener('click', backspace);
