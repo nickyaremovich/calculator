@@ -15,12 +15,11 @@ function handleNumber(value) {
     } else {
         currentInput += value;
     } 
-    operator = null;
     updateDisplay();
 };
 //handle op
 function handleOperator(op) {
-    if (operator && previousInput) {
+    if (operator && previousInput && currentInput) {
         operate();
     }
     previousInput = currentInput;
@@ -28,40 +27,43 @@ function handleOperator(op) {
     currentInput= '';
     updateDisplay();
 }
-function operate () {
-    if (!operators.includes(operator)) return 'Invalid operator';
-    const firstOperand = parseFloat(previousInput);
-    const secondOperand = parseFloat(currentInput);
-    let result;
+function operate() {
+  
+  const firstOperand = parseFloat(previousInput);
+  const secondOperand = parseFloat(currentInput);
+  let result;
 
-    switch (operator) {
-      case '+':
-        result = firstOperand + secondOperand;
-        break;
-      case '-':
-        result = firstOperand - secondOperand;
-        break;
-      case '*':
-        result = firstOperand * secondOperand;
-        break;
-      case '/':
-        if (secondOperand === 0) {
-          currentInput = "Can\'t do that!";
-          updateDisplay();
-          return;
-      }
-        result = firstOperand / secondOperand;
-        break;
-      default:
-        currentInput = 'Error';
+  console.log('First:', firstOperand, 'Second:', secondOperand, 'Operator:', operator);
+
+  switch (operator) {
+    case '+':
+      result = firstOperand + secondOperand;
+      break;
+    case '-':
+      result = firstOperand - secondOperand;
+      break;
+    case '*':
+      result = firstOperand * secondOperand;
+      break;
+    case '/':
+      if (secondOperand === 0) {
+        currentInput = "Can't do that!";
         updateDisplay();
         return;
+      }
+      result = firstOperand / secondOperand;
+      break;
+    default:
+      currentInput = 'Error';
+      updateDisplay();
+      return;
   }
-    currentInput = result.toString();
-    previousInput = '';
-    operator = null;
-    updateDisplay();
-  
+
+  console.log('Result:', result);
+  currentInput = result.toString();
+  previousInput = '';
+  operator = null;
+  updateDisplay();
 };
 
 function clear() {
