@@ -5,7 +5,7 @@ let previousInput = '';
 let operator = null;
 
 // update display function
-function updateDisplay() {
+function updateDisplay(result) {
     document.querySelector('#display').value = currentInput;
 };
 // handle numbers
@@ -49,9 +49,11 @@ function operate (operator) {
       default:
         return 'Error';
   }
-
-    updateDisplay(); // Now this will run
-    return result;
+    currentInput = result.toString();
+    previousInput = '';
+    operator = null;
+    updateDisplay();
+  
 };
 
 function clear() {
@@ -62,8 +64,8 @@ function clear() {
 }
 
 // not sure if I need these?
-let firstOperand = 0;
-let secondOperand = 0;
+// let firstOperand = 0;
+// let secondOperand = 0;
 
 
 //add event listeners to buttons
