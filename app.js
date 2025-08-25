@@ -28,8 +28,10 @@ function handleOperator(op) {
     currentInput= '';
     updateDisplay();
 }
-function operate () {
+function operate (operator) {
     if (!operators.includes(operator)) return 'Invalid operator';
+    const firstOperand = parseFloat(previousInput);
+    const secondOperand = parseFloat(currentInput);
     let result;
 
     switch (operator) {
@@ -77,5 +79,5 @@ document.querySelectorAll('.operator').forEach(button => {
   button.addEventListener('click', () => handleOperator(button.getAttribute('data-op')));
 });  
 
-document.getElementById('equal').addEventListener('click', operate);
+document.getElementById('equal').addEventListener('click', operate(operator));
 document.getElementById('clear').addEventListener('click', clear);
