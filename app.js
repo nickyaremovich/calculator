@@ -28,7 +28,7 @@ function handleOperator(op) {
     currentInput= '';
     updateDisplay();
 }
-function operate (operator) {
+function operate () {
     if (!operators.includes(operator)) return 'Invalid operator';
     let result;
 
