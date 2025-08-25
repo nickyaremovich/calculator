@@ -100,19 +100,4 @@ button:hover {
   background-color: #607d8b;
 }
 
-/* Responsive tweaks */
-@media (max-width: 400px) {
-  .calculator {
-    width: 90%;
-  }
 
-  button {
-    font-size: 1.2rem;
-    height: 45px;
-  }
-
-  #display {
-    font-size: 1.6rem;
-    height: 50px;
-  }
-}
