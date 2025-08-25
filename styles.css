@@ -3,15 +3,116 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* Reset and base styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #424040;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-.row {
-    display: flex;
-}
 h3 {
-    text-align: center;
+  position: absolute;
+  top: 20px;
+  font-size: 1.8rem;
+  color: smoke;
 }
+
+/* Container */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Calculator box */
+.calculator {
+  background-color: #1e1e2f;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  width: 320px;
+}
+
+/* Display */
+#display {
+  width: 100%;
+  height: 60px;
+  font-size: 2rem;
+  text-align: right;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2e2e3f;
+  color: white;
+}
+
+/* Button rows */
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+button {
+  flex: 1;
+  margin: 5px;
+  height: 50px;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #3e3e5f;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #5e5e8f;
+  transform: scale(1.05);
+}
+
+/* Operator buttons */
+.operator {
+  background-color: #ff9800;
+}
+
+.operator:hover {
+  background-color: #ffa726;
+}
+
+/* Special buttons */
+#clear {
+  background-color: #f44336;
+}
+
+#equal {
+  background-color: #00b894;
+}
+
+#backspace {
+  background-color: #607d8b;
+}
+
+/* Responsive tweaks */
+@media (max-width: 400px) {
+  .calculator {
+    width: 90%;
+  }
+
+  button {
+    font-size: 1.2rem;
+    height: 45px;
+  }
+
+  #display {
+    font-size: 1.6rem;
+    height: 50px;
+  }
 }
