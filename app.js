@@ -5,7 +5,7 @@ let previousInput = '';
 let operator = null;
 
 // update display function
-function updateDisplay(result) {
+function updateDisplay() {
     document.querySelector('#display').value = currentInput;
 };
 // handle numbers
