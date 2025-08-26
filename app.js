@@ -3,15 +3,16 @@ const operators = ['+', '-', '*', '/'];
 let currentInput = '0';
 let previousInput = '';
 let operator = null;
-
+let isNewInput = false;
 // update display function
 function updateDisplay() {
     document.querySelector('#display').value = currentInput;
 };
 // handle numbers
 function handleNumber(value) {
-    if (currentInput === '0' || operator) {
+    if (currentInput === '0' || isNewInput) {
         currentInput = value;
+        isNewInput = false;
     } else {
         currentInput += value;
     } 
@@ -36,6 +37,7 @@ function handleOperator(op) {
     }
     previousInput = currentInput;
     operator = op;
+    isNewInput = true
     currentInput= '';
     updateDisplay();
 }
