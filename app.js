@@ -120,6 +120,7 @@ document.addEventListener('keydown', (e) => {
   } else if (['+', '-', '*', '/'].includes(key)) {
     handleOperator(key);
   } else if (key === 'Enter' || key === '=') {
+    e.preventDefault();
     operate();
   } else if (key === 'Backspace') {
     e.preventDefault(); 
