@@ -113,27 +113,18 @@ document.getElementById('backspace').addEventListener('click', backspace);
 document.addEventListener('keydown', (e) => {
   const key = e.key;
 
-
-  if (!isNaN(key) || key === '.') {
+  if (!isNaN(key)) {
     handleNumber(key);
-  }
-
-  if (['+', '-', '*', '/'].includes(key)) {
+  } else if (key === '.') {
+    handleDecimal(key);
+  } else if (['+', '-', '*', '/'].includes(key)) {
     handleOperator(key);
-  }
-
-  if (key === 'Enter' || key === '=') {
+  } else if (key === 'Enter' || key === '=') {
     operate();
-  }
-
- 
-  if (key === 'Backspace') {
+  } else if (key === 'Backspace') {
     e.preventDefault(); 
     backspace();
-  }
-
-
-  if (key === 'Escape') {
+  } else if (key === 'Escape') {
     clear();
   }
 });
